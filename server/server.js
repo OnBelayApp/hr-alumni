@@ -14,21 +14,10 @@ if (process.env.NODE_ENV === undefined) {
 }
 var app = express();
 
-
-  // Express 4 allows us to use multiple routers with their own configurations
-  //var questionsRouter = express.Router();
-
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(express.static(__dirname + '/../client'));
   app.use(morgan('dev'));
-
-  //app.use('/api/profiles', questionsRouter); // use questions router for all questions request
-
-
-  // inject our routers into their respective route files
-  // require('./config/request-handler.js')(questionsRouter);
-
 
 // github auth
 var passport = require('passport');
@@ -41,12 +30,6 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
-
-// if (process.env.NODE_ENV === undefined) {
-//   var callbackURL = 'http://localhost:3000/auth/github/callback';
-// } else {
-//   var callbackURL = 'http://hr-alumni-app.herokuapp.com/auth/github/callback';
-// }
 
 passport.use(new GithubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID || secrets.GITHUB_CLIENT_ID,
@@ -87,15 +70,11 @@ app.get('/auth/github/callback',
   passport.authenticate('github', {
     failureRedirect: '/login'
   }), function(req, res) {
-    //console.log('req',req.user);
     var data= {
       body: req.user,
       fromGitHub: true
     };
-    //console.log(req.user);
-    // console.log("handler.createProfile run")
     handler.createProfile(data, res);
-    // res.redirect('/');
   });
 
 app.get('/', function(req, res) {

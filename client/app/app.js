@@ -22,10 +22,6 @@ angular.module('myApp', [
       url: '/profiles',
       templateUrl: 'app/views/profiles.html'
     })
-    // .state('createProfile', {
-    //   url: '/createProfile',
-    //   templateUrl: 'app/views/createProfile.html'
-    // })
     .state('login', {
       url: '/login',
       templateUrl: 'app/views/login.html'
@@ -51,10 +47,6 @@ angular.module('myApp', [
 
 }])
 
-.controller('profileCtrl', ['$scope', 'Profile', function ($scope, Profile) {
-  // $scope.currentProfile= Profile.getProfile();
-}])
-
 .controller('profilesCtrl', ['$scope', '$http', 'HttpRequest', 'Profile', function ($scope, $http, HttpRequest, Profile) {
 
   HttpRequest.getProfiles()
@@ -73,24 +65,8 @@ angular.module('myApp', [
 
 }])
 
-// .controller('createProfileCtrl', ['$scope', 'HttpRequest', function ($scope, HttpRequest){
-//   $scope.submitProfile = function (isValid, formData) {
-//     console.log(formData);
-//     console.log('First isValid: ', isValid);
-//     // HttpRequest.submitProfile(isValid, formData);
-//   }
-// }])
-
 .controller('updateProfileCtrl', ['$scope', '$stateParams','HttpRequest', function ($scope, $stateParams, HttpRequest){
-  // redirects to /updateProfile/:githubName
-  // $scope.submitProfile = function (isValid, formData) {
-  //       console.log('formData', formData);
-  //       console.log('First isValid: ', isValid);
-  //       // HttpRequest.submitProfile(isValid, formData);
-  // }
-
   $scope.submitProfile = function (isValid, formData) {
-        // console.log('First isValid: ', isValid);
         HttpRequest.submitProfile(isValid, formData);
   };
 
@@ -98,13 +74,6 @@ angular.module('myApp', [
   HttpRequest.getProfile($stateParams.githubName)
     .then(function (res) {
       $scope.data= res.data;
-      // $scope.setProfile= function (profile) {
-      //   console.log('set profile called');
-      //   $scope.currentProfile= Profile.setProfile(profile);
-      //   console.log('currentProfile', $scope.currentProfile);
-      // }
-
-
     });
 
 }])
