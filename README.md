@@ -19,7 +19,6 @@ Open source contribution that extends the original [Hacker Social](https://githu
 ## Requirements
 
 > - Node 5.2.0
-> - Bower 1.7.2
 
 ## Development
 
@@ -29,7 +28,6 @@ Open source contribution that extends the original [Hacker Social](https://githu
 
 ```
 npm install
-bower install
 ```
 
 ### Roadmap
