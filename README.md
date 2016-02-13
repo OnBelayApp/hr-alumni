@@ -1,5 +1,5 @@
 # Hacker Social 
-Open source contribution that extends the original [Hacker Social](https://github.com/HackerSocial/hr-alumni) project.
+Open source contribution that extends the original [Hacker Social](https://github.com/HackerSocial/hr-alumni) project to include a message board platform.
 
 ## Table of Contents
 
