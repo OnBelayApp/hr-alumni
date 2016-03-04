@@ -43,4 +43,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
   - __Product Owner__: Tiffany Huang
   - __Scrum Master__: Ryan Jagger
-  - __Development Team Members__: Brian Teddar, Robert Lin
+  - __Development Team Members__: Brian Tedder, Robert Lin
